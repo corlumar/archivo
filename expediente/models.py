@@ -5,8 +5,8 @@ from django.db import models
 class Productor(models.Model):
 	id = models.BigAutoField(primary_key = True)
 	nombre = models.CharField('Nombre', max_length = 100, blank = False, null = False)
-	apell_pat = models.CharField('apell_pat', max_length = 50, blank = True, null = True)
-	apell_mat = models.CharField('apell_mat', max_length = 50, blank = True, null = True)
+	apell_pat = models.CharField('Apellido Paterno',  max_length = 50, blank = True, null = True)
+	apell_mat = models.CharField('apellido Materno', max_length = 50, blank = True, null = True)
 	generos = [
         ("H", "Hombre"),
         ("M", "Mujer"),

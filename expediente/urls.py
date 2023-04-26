@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import Home
+from .views import crearProductor
 
 urlpatterns = [
-	path('', Home, name = 'index')
+	path('crear_productor/', crearProductor, name = 'crearProductor')
+	
 ]
