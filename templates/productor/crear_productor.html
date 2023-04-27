@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block titulo %}
+
+	Creación de Productores
+
+{% endblock titulo %}
+
+{% block body %}
+
+<form method="POST">
+	
+	{% csrf_token %} 
+	{{ productor_form.as_p }}
+	<button type = 'submit'>Crear1</button>
+
+</form>	
+{% endblock body %}

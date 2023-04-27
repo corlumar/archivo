@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block titulo %}
+
+	Eliminacion de Productor
+
+{% endblock titulo %}
+
+{% block body %}
+
+<form method="POST">
+
+	{% csrf_token %} 
+	<h2>¿Desea eliminar el registro {{ productor.curp}}</h2>
+	
+	<button type = 'submit'>Eliminar</button>
+	<a href="{% url 'expediente:listar_productor' %}">Cancelar</a>
+
+</form>	
+{% endblock body %}

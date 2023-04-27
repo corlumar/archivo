@@ -1,0 +1,52 @@
+{% extends  'index.html' %}
+
+{% block titulo %}
+
+	Listado de Productores
+
+{% endblock titulo %}
+
+{% block body %}
+
+	{% if productores %}
+
+	<table>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Nombres</th>
+				<th>Apellido Paterno</th>
+				<th>Apellido Materno</th>
+				<th>Género</th>
+				<th>CURP</th>
+				<th>Opciones</th>
+			</tr>	
+
+		</thead>
+		<tbody>
+			{% for productor in productores %}
+			<tr>
+				<td>{{ productor.id}}</td>
+				<td>{{ productor.nombre}}</td>
+				<td>{{ productor.apell_pat}}</td>
+				<td>{{ productor.apell_mat}}</td>
+				<td>{{ productor.genero}}</td>
+				<td>{{ productor.curp}}</td>
+				<td>
+					<a href="{% url 'expediente:editar_productor' productor.id %}">Editar</a>
+					<a href="{% url 'expediente:eliminar_productor' productor.id %}">Eliminar</a>
+				</td>
+			</tr>
+			{% endfor %}
+
+		</tbody>
+			
+	</table>
+
+	{% else %}
+
+	<H1> No existen Productores registrados</H1>
+
+	{% endif %}
+
+{% endblock body %}

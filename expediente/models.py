@@ -6,13 +6,14 @@ class Productor(models.Model):
 	id = models.BigAutoField(primary_key = True)
 	nombre = models.CharField('Nombre', max_length = 100, blank = False, null = False)
 	apell_pat = models.CharField('Apellido Paterno',  max_length = 50, blank = True, null = True)
-	apell_mat = models.CharField('apellido Materno', max_length = 50, blank = True, null = True)
+	apell_mat = models.CharField('Apellido Materno', max_length = 50, blank = True, null = True)
 	generos = [
         ("H", "Hombre"),
         ("M", "Mujer"),
     ]
 	genero = models.CharField('Género', max_length = 1, choices = generos)
 	curp = models.CharField('CURP',  max_length = 18, blank = False, null = False)
+	estado = models.BooleanField('Estado', default = True)
 
 	class Meta:
 		verbose_name = 'Productor'
@@ -26,8 +27,8 @@ class Productor(models.Model):
 
 class Folio(models.Model):
 	id = models.CharField(max_length = 25, primary_key = True, blank = False, null = False)
-	productor_id = models.ForeignKey(Productor, on_delete = models.CASCADE)
-	fecha_solicitud = models.DateField('Fecha de Solicitud')
+	productor_id = models.ForeignKey(Productor, null = True, on_delete = models.CASCADE)
+	fecha_solicitud = models.DateTimeField('Fecha de Solicitud', null = True)
 
 		
 	class Meta:
