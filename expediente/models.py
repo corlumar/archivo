@@ -28,7 +28,7 @@ class Productor(models.Model):
 class Folio(models.Model):
 	id = models.CharField(max_length = 25, primary_key = True, blank = False, null = False)
 	productor_id = models.ForeignKey(Productor, null = True, on_delete = models.CASCADE)
-	fecha_solicitud = models.DateTimeField('Fecha de Solicitud', null = True)
+	fecha_solicitud = models.DateField('Fecha de Solicitud', null = True)
 
 		
 	class Meta:
