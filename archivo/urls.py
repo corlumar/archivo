@@ -20,7 +20,8 @@ from expediente.views import Home
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
     path('expediente/' ,include(('expediente.urls', 'expediente'))),
-    path('home/', Home, name = 'index')
+    path('home/', Home, name = 'index',)
 ]
